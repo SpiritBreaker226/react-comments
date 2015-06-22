@@ -51,8 +51,11 @@
           if (!text || !author) {
             return;
           }
-          
-          // TODO: send request to the server
+
+          this.props.onCommentSubmit({
+            author: author,
+            text: text
+          });
           React.findDOMNode(this.refs.author).value = '';
           React.findDOMNode(this.refs.text).value = '';
         },
@@ -85,6 +88,9 @@
             }.bind(this)
           });
         },
+        _onCommentSubmit: function(comment) {
+          // TODO: submit to the server and refresh the list
+        },
         getInitialState: function() {
           return {
             data: []
@@ -100,7 +106,7 @@
               <h1>Comments</h1>
 
               <CommentList data={this.state.data} />
-              <CommentForm />
+              <CommentForm onCommentSubmit={this._onCommentSubmit} />
             </div>
           );
         }
