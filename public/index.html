@@ -56,14 +56,14 @@
             <div className="commentBox">
               <h1>Comments</h1>
 
-              <CommentList />
+              <CommentList data={this.props.data} />
               <CommentForm />
             </div>
           );
         }
       });
       React.render(
-        <CommentBox />,
+        <CommentBox data={data} />,
         document.getElementById('content')
       );
     </script>
