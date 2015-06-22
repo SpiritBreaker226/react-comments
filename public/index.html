@@ -98,7 +98,7 @@
           $.ajax({
             url: this.props.url,
             dataType: 'json',
-            cache: false,
+            type: 'POST',
             data: comment,
             success: function(data) {
               this.setState({
